@@ -28,6 +28,9 @@ def get_wlan0_status():
     except subprocess.CalledProcessError:
         return False, None, None
 
+    except FileNotFoundError:
+        return False, None, None
+
 def categorize_signal_strength(signal_percentage):
     if signal_percentage is None:
         return 0
