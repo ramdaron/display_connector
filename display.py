@@ -742,7 +742,7 @@ class DisplayController:
         elif type == EventType.RECONNECTED:
             logger.info("Reconnected to Display")
             self.history = []
-            self.initialize_display()
+            await self.display.initialize_display()
             self._navigate_to_page(PAGE_MAIN, clear_history=True)
         else:
             logger.info(f"Unhandled Event: {type} {data}")
